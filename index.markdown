@@ -7,7 +7,7 @@ layout: home
 
 
 
-In this tutorial we will be applying Monte Carlo Tree Search (MCTS) algorithm to the board game we developed.
+In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and each part of the code. Recently we applied MCTS to develop our game. 
 
 ![My helpful screenshot](/assets/400by400.png)
 
