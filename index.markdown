@@ -13,7 +13,17 @@ In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and
 
 Here is the link to the game: [Sudo Tic Tac Toe][jekyll-talk].
 
-As you would have seen this game has a very high branching factor. For the first turn it has 81 possible moves. For the second turn it has 8 or 9 possible moves. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games. Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game. Below we demonstrate the MCTS code in Python.
+Rules for this game are as follows:
+
+1. The game is played on a 9 by 9 grid like Sudoku.
+2. This big 9 by 9 grid is divided into 9 smaller 3 by 3 grids (local board).
+3. Aim of the game is to win any one local board of the 9 available.
+4. Your move determines in which local board A.I has to make a move and viceversa.
+5. For example you make a move in position 1 of local board number 5.
+ This will force the A.I to make a move in local board number 1.
+6. Rules of normal Tic Tac Toe are applied to local board.
+
+As you would have seen this game has a very high branching factor. For the first move the entire board is empty. So there are 81 empty spots. For the first turn it has 81 possible moves. For the second turn by applying rule 4 it has 8 or 9 possible moves. For the first 2 moves this results in 81*9 = 729 possible combinations. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games. Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game. Below we demonstrate the MCTS code in Python.
 
 First we need to import numpy and defaultdict.
 
@@ -230,7 +240,7 @@ MCTS consists of 4 steps:
 The idea is to keep selecting optimal child nodes until we reach the leaf node of the tree. A good way to select such a child node is to use UCT (Upper Confidence Bound applied to trees) formula:
 
 			wi/ni + c*sqrt(t)/ni
-in which  
+  
 
 wi = number of wins after the i-th move  
 ni = number of simulations after the i-th move  
@@ -248,5 +258,12 @@ After Expansion, the algorithm picks a child node arbitrarily, and it simulates 
 ## BACKPROPAGATION:
 
 Once the algorithm reaches the end of the game, it evaluates the state to figure out which player has won. It traverses upwards to the root and increments visit score for all visited nodes. It also updates win score for each node if the player for that position has won the playout.
+
+If you plan to make your own game, you will have to think about the following questions.
+1. How will you represent the state of your game? Think about the initial state in our game. 
+2. What will be the end game condition in your game be? Compare it with the end game condition of our game.
+3. How will you get the legal actions in your game? Try getting the legal actions for the first move of our game. 
+
+[Sudo Tic Tac Toe][jekyll-talk]
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
