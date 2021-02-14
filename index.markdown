@@ -9,7 +9,7 @@ In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and
 
 The code is general and only assumes familarity with basic Python. We have explained it with respect to our game. If you want to use it, you will have to slightly modify the functions which I have mentioned below.
 
-![My helpful screenshot](/assets/400by400.png=300x300)
+![My helpful screenshot](/assets/400by400.png= 300x300)
 
 Here is the playstore link to the game: [Sudo Tic Tac Toe][jekyll-talk].
 
@@ -29,7 +29,7 @@ For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the
 
 Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game.
 
-[![homepage](/assets/google-play-badge.png=200x80)][2]
+[![homepage](/assets/google-play-badge.png= 200x80)][2]
 
 Below we demonstrate the MCTS code in Python.
 First we need to import numpy and defaultdict.
@@ -276,7 +276,7 @@ If you plan to make your own game, you will have to think about the following qu
 
 [Sudo Tic Tac Toe][jekyll-talk]
 
-[![homepage](/assets/google-play-badge.png=200x80)][2]
+[![homepage](/assets/google-play-badge.png= 200x80)][2]
 
 If you have any questions or suggestions, feel free to contact us at bosonicstudios@gmail.com
 
