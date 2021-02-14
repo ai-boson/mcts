@@ -7,9 +7,9 @@ layout: home
 
 In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and each part of the code. Recently we applied MCTS to develop our game.
 
-The code is general and only assumes familarity with basic Python. We have explained it with respect to our game. If you want to use it, you will have to slightly modify the functions which I have mentioned.
+The code is general and only assumes familarity with basic Python. We have explained it with respect to our game. If you want to use it, you will have to slightly modify the functions which I have mentioned below.
 
-![My helpful screenshot](/assets/400by400.png)
+![My helpful screenshot](/assets/400by400.png=300x300)
 
 Here is the playstore link to the game: [Sudo Tic Tac Toe][jekyll-talk].
 
@@ -29,18 +29,18 @@ For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the
 
 Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game.
 
-[![homepage](/assets/google-play-badge.png)][2]
+[![homepage](/assets/google-play-badge.png=200x80)][2]
 
 Below we demonstrate the MCTS code in Python.
 First we need to import numpy and defaultdict.
 
-```python:
+```python
 import numpy as np
 from collections import defaultdict
 ```
 Define MCTS class as shown below. 
 
-```python:
+```python
 class MonteCarloTreeSearchNode():
     def __init__(self, state, parent=None, parent_action=None):
         self.state = state
@@ -57,17 +57,17 @@ class MonteCarloTreeSearchNode():
 
 ```
 ### Constructor is used to initialize the following variables.
-- state: For our game it represents the board state. Generally the board state is represented by an array. For normal Tic Tac Toe, it is a 3 by 3 array.
-- parent: It is None for the root node and for other nodes it is equal to the node it is derived from. For the first turn as you have seen from the game  it is None.
-- children: It contains all possible actions from the current node. For the first turn in our game this is 9 or 8 depending on where you make your move.
-- parent_action: None for the root node and for other nodes it is equal to the action which it's parent carried out.
-- _number_of_visits: Number of times current node is visited
-- results: It's a dictionary
-- _untried_actions: Represents the list of all possible actions
-- action: Move which has to be carried out.  
+- **state**: For our game it represents the board state. Generally the board state is represented by an array. For normal Tic Tac Toe, it is a 3 by 3 array.
+- **parent**: It is None for the root node and for other nodes it is equal to the node it is derived from. For the first turn as you have seen from the game  it is None.
+- **children**: It contains all possible actions from the current node. For the second turn in our game this is 9 or 8 depending on where you make your move.
+- **parent_action**: None for the root node and for other nodes it is equal to the action which it's parent carried out.
+- **_number_of_visits**: Number of times current node is visited
+- **results**: It's a dictionary
+- **_untried_actions**: Represents the list of all possible actions
+- **action**: Move which has to be carried out.  
 Class consists of the following member functions. All the functions below are member function except the main() function.
 
-```python:
+```python
 def untried_actions(self):
 
     self._untried_actions = self.state.get_legal_actions()
@@ -75,7 +75,7 @@ def untried_actions(self):
 ```
 Returns the list of untried actions from a given state. For the first turn of our game there are 81 possible actions. For the second turn it is 8 or 9. This varies in our game.
 
-```python:    
+```python    
 def q(self):
     wins = self._results[1]
     loses = self._results[-1]
@@ -83,13 +83,13 @@ def q(self):
 ```
 Returns the difference of wins - losses
 
-```python:   
+```python   
 def n(self):
     return self._number_of_visits
 ```
 Returns the number of times each node is visited.
 
-```python:
+```python
 def expand(self):
 	
     action = self._untried_actions.pop()
@@ -105,13 +105,13 @@ def expand(self):
 ``` 
 In this step all the possible states are appended to the children array and the child_node is returned. The states which are possible from the present state are all appended to the children array and the child_node corresponding to this state is returned.
 
-```python: 
+```python 
 def is_terminal_node(self):
     return self.state.is_game_over()
 ``` 
 This is used to check if the current node is terminal or not. Terminal node is reached when the game is over.
 
-```python: 
+```python 
 def rollout(self):
     current_rollout_state = self.state
     
@@ -125,7 +125,7 @@ def rollout(self):
 ``` 
 From the current state, entire game is simulated till there is an outcome for the game. This outcome of the game is returned. For example if it results in a win, the outcome is 1. Otherwise it is -1 if it results in a loss. And it is 0 if it is a tie. If the entire game is randomly simulated, that is at each turn the move is randomly selected out of set of possible moves, it is called light playout.
 
-```python: 
+```python 
 def backpropagate(self, result):
     self._number_of_visits += 1.
     self._results[result] += 1.
@@ -134,14 +134,14 @@ def backpropagate(self, result):
 ``` 
 In this step all the statistics for the nodes are updated. Untill the parent node is reached, the number of visits for each node is incremented by 1. If the result is 1, that is it resulted in a win, then the win is incremented by 1. Otherwise if result is a loss, then loss is incremented by 1.
 
-```python:    
+```python    
 def is_fully_expanded(self):
     return len(self._untried_actions) == 0
 
 ``` 
 All the actions are poped out of _untried_actions one by one. When it becomes empty, that is when the size is zero, it is fully expanded.
 
-```python: 
+```python 
 def best_child(self, c_param=0.1):
     
     choices_weights = [(c.q() / c.n()) + c_param * np.sqrt((2 * np.log(self.n()) / c.n())) for c in self.children]
@@ -150,7 +150,7 @@ def best_child(self, c_param=0.1):
 ``` 
 Once fully expanded, this function selects the best child out of the children array. The first term in the formula corresponds to exploitation and the second term corresponds to exploration.
 
-```python: 
+```python 
 def rollout_policy(self, possible_moves):
     
     return possible_moves[np.random.randint(len(possible_moves))]
@@ -158,7 +158,7 @@ def rollout_policy(self, possible_moves):
 ```
 Randomly selects a move out of possible moves. This is an example of random playout.
 
-```python:
+```python
 def _tree_policy(self):
 
     current_node = self.root
@@ -172,7 +172,7 @@ def _tree_policy(self):
 ```       
 Selects node to run rollout.
     
-```python:
+```python
 def best_action(self):
     simulation_no = 100
 	
@@ -188,26 +188,27 @@ def best_action(self):
 This is the best action function which returns the node corresponding to best possible move.
 The step of expansion, simulation and backpropagation are carried out by the code above.
 
-```python:
+```python
 def get_legal_actions(self): 
     '''
-    Modify according to your game or needs.
-    constructs a list of all possible states from current state.
+    Modify according to your game or
+    needs. Constructs a list of all
+    possible states from current state.
     Returns an array.
     '''
 ```
 
-```python:
+```python
 def is_game_over(self):
     '''
-    Modify according to your game or
+    Modify according to your game or 
     needs. It is the game over condition
     and depends on your game. Returns
     true or false
     '''
 ```
 
-```python:
+```python
 def game_result(self):
     '''
     Modify according to your game or 
@@ -216,7 +217,7 @@ def game_result(self):
     tie or a loss.
     '''
 ```
-```python:
+```python
 def move(self,action):
     '''
     Modify according to your game or 
@@ -234,7 +235,7 @@ def move(self,action):
 
 ```
 
-```python:
+```python
 def main():
     root = MonteCarloTreeSearchNode(state,None,action)
     selected_node = root.best_action()
@@ -269,13 +270,13 @@ Once the algorithm reaches the end of the game, it evaluates the state to figure
 
 ## DESIGNING YOUR GAME:
 If you plan to make your own game, you will have to think about the following questions.
-1. How will you represent the state of your game? Think about the initial state in our game. 
-2. What will be the end game condition for your game? Compare it with the end game condition of our game.
-3. How will you get the legal actions in your game? Try getting the legal actions for the first move of our game. 
+1. **How will you represent the state of your game? Think about the initial state in our game.** 
+2. **What will be the end game condition for your game? Compare it with the end game condition of our game.**
+3. **How will you get the legal actions in your game? Try getting the legal actions for the first move of our game.** 
 
 [Sudo Tic Tac Toe][jekyll-talk]
 
-[![homepage](/assets/google-play-badge.png)][2]
+[![homepage](/assets/google-play-badge.png=200x80)][2]
 
 If you have any questions or suggestions, feel free to contact us at bosonicstudios@gmail.com
 
