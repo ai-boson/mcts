@@ -23,6 +23,8 @@ Rules for our game(mode 1) are as follows:
  This will force the A.I to make a move in local board number 1.
 6. Rules of normal Tic Tac Toe are applied to local board.
 
+## Why MCTS?
+
 As you would have seen this game has a very high branching factor. For the first move the entire board is empty. So there are 81 empty spots. For the first turn it has 81 possible moves. For the second turn by applying rule 4 it has 8 or 9 possible moves.
 
 For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the number of possible combinations increases as the game progresses, resulting in a high branching factor. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games.
