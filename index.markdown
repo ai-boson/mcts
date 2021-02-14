@@ -5,13 +5,13 @@
 layout: home
 ---
 
+In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and each part of the code. Recently we applied MCTS to develop our game.
 
-
-In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and each part of the code. Recently we applied MCTS to develop our game. 
+The code is general and only assumes familarity with basic Python. We have explained it with respect to our game. If you want to use it, you will have to slightly modify the functions which I have mentioned.
 
 ![My helpful screenshot](/assets/400by400.png)
 
-Here is the link to the game: [Sudo Tic Tac Toe][jekyll-talk].
+Here is the playstore link to the game: [Sudo Tic Tac Toe][jekyll-talk].
 
 Rules for our game(mode 1) are as follows:
 
@@ -23,7 +23,11 @@ Rules for our game(mode 1) are as follows:
  This will force the A.I to make a move in local board number 1.
 6. Rules of normal Tic Tac Toe are applied to local board.
 
-As you would have seen this game has a very high branching factor. For the first move the entire board is empty. So there are 81 empty spots. For the first turn it has 81 possible moves. For the second turn by applying rule 4 it has 8 or 9 possible moves. For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the number of possible combinations increases as the game progresses, resulting in a high branching factor. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games. Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game. Below we demonstrate the MCTS code in Python.
+As you would have seen this game has a very high branching factor. For the first move the entire board is empty. So there are 81 empty spots. For the first turn it has 81 possible moves. For the second turn by applying rule 4 it has 8 or 9 possible moves. For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the number of possible combinations increases as the game progresses, resulting in a high branching factor. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games.
+
+Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game. Below we demonstrate the MCTS code in Python.
+
+[![homepage](/assets/google-play-badge.png)][2]
 
 First we need to import numpy and defaultdict.
 
@@ -80,7 +84,7 @@ Returns the difference of wins - losses
 def n(self):
     return self._number_of_visits
 ```
-Represents the number of times each node is visited.
+Returns the number of times each node is visited.
 
 ```python:
 def expand(self):
@@ -239,7 +243,7 @@ MCTS consists of 4 steps:
 ## SELECTION
 The idea is to keep selecting best child nodes until we reach the leaf node of the tree. A good way to select such a child node is to use UCT (Upper Confidence Bound applied to trees) formula:
 
-			wi/ni + c*sqrt(t)/ni
+		wi/ni + c*sqrt(t)/ni
   
 
 wi = number of wins after the i-th move  
@@ -260,7 +264,7 @@ After Expansion, the algorithm picks a child node arbitrarily, and it simulates 
 Once the algorithm reaches the end of the game, it evaluates the state to figure out which player has won. It traverses upwards to the root and increments visit score for all visited nodes. It also updates win score for each node if the player for that position has won the playout.
 
 
-## DESIGNING YOUR GAME
+## DESIGNING YOUR GAME:
 If you plan to make your own game, you will have to think about the following questions.
 1. How will you represent the state of your game? Think about the initial state in our game. 
 2. What will be the end game condition for your game? Compare it with the end game condition of our game.
@@ -268,10 +272,9 @@ If you plan to make your own game, you will have to think about the following qu
 
 [Sudo Tic Tac Toe][jekyll-talk]
 
-
 [![homepage](/assets/google-play-badge.png)][2]
 
-
+If you have any questions or suggestions, feel free to contact us at bosonicstudios@gmail.com
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
 [2]: https://play.google.com/store/apps/details?id=com.myComp.sudo
