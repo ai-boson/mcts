@@ -268,7 +268,10 @@ If you plan to make your own game, you will have to think about the following qu
 
 [Sudo Tic Tac Toe][jekyll-talk]
 
-![googleplaystore](/assets/google-play-badge.png)[googleplaystore1]
+
+[![homepage](/assets/google-play-badge.png)][2]
+
+
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
-[googleplaystore1]: https://play.google.com/store/apps/details?id=com.myComp.sudo
+[2]: https://play.google.com/store/apps/details?id=com.myComp.sudo
