@@ -29,7 +29,7 @@ As you would have seen this game has a very high branching factor. For the first
 
 For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the number of possible combinations increases as the game progresses, resulting in a high branching factor. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games.
 
-Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. MCTS has been applied to both the modes of the game.
+Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. Thus MCTS runs fast. MCTS has been applied to both the modes of the game.
 
 [![homepage](/assets/google-play-badge.png)][2]
 
@@ -67,6 +67,7 @@ class MonteCarloTreeSearchNode():
 - **results**: It's a dictionary
 - **_untried_actions**: Represents the list of all possible actions
 - **action**: Move which has to be carried out.  
+
 Class consists of the following member functions. All the functions below are member function except the main() function.
 
 ```python
@@ -96,16 +97,13 @@ def expand(self):
 	
     action = self._untried_actions.pop()
     next_state = self.state.move(action)
-    child_node = TwoPlayersGameMonteCarloTreeSearchNode(
+    child_node = MonteCarloTreeSearchNode(
 		next_state, parent=self, parent_action=action)
 
- 
-
-	
     self.children.append(child_node)
     return child_node 
 ``` 
-In this step all the possible states are appended to the children array and the child_node is returned. The states which are possible from the present state are all appended to the children array and the child_node corresponding to this state is returned.
+From the present state, next state is generated depending on the action which is carried out. In this step all the possible states are appended to the children array and the child_node is returned. The states which are possible from the present state are all appended to the children array and the child_node corresponding to this state is returned.
 
 ```python 
 def is_terminal_node(self):
@@ -241,12 +239,14 @@ def move(self,action):
 def main():
     root = MonteCarloTreeSearchNode(state,None,action)
     selected_node = root.best_action()
+    return 
 ```
 This is the main() function. Initialize the root node and call the best_action function to get the best node. This is not a member function of the class. All the other functions are member function of the class.
 
 MCTS consists of 4 steps:
 
 ## SELECTION
+
 The idea is to keep selecting best child nodes until we reach the leaf node of the tree. A good way to select such a child node is to use UCT (Upper Confidence Bound applied to trees) formula:
 
 		wi/ni + c*sqrt(t)/ni
@@ -271,6 +271,7 @@ Once the algorithm reaches the end of the game, it evaluates the state to figure
 
 
 ## DESIGNING YOUR GAME:
+
 If you plan to make your own game, you will have to think about the following questions.
 1. **How will you represent the state of your game? Think about the initial state in our game.** 
 2. **What will be the end game condition for your game? Compare it with the end game condition of our game.**
