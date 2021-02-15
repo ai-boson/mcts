@@ -18,11 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: MCTS algorithm tutorial and it's explanation with code.
+title: Monte Carlo Tree Search (MCTS) algorithm tutorial and it's explanation with Python code.
 email: bosonicstudios@gmail.com
 description: >- 
-  Apply MCTS algorithm and create an unbeatable A.I for simple game.
-  MCTS algorithm tutorial with code for students with no background
+  Apply Monte Carlo Tree Search (MCTS) algorithm and create an unbeatable A.I for a simple game.
+  MCTS algorithm tutorial with Python code for students with no background
   in Computer Science or Machine Learning. Design board games like Go,
   Sudo Tic Tac Toe, Chess, etc within hours.
 baseurl: "mcts" # the subpath of your site, e.g. /blog
