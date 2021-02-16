@@ -7,7 +7,7 @@ layout: home
 
 In this tutorial we will be explaining the Monte Carlo Tree Search algorithm and each part of the code. Recently we applied MCTS to develop our game.
 
-The code is general and only assumes familarity with basic Python. We have explained it with respect to our game. If you want to use it, you will have to slightly modify the functions which I have mentioned below.
+The code is general and only assumes familarity with basic Python. We have explained it with respect to our game. If you want to use it for your project or game, you will have to slightly modify the functions which I have mentioned below.
 
 <img src="assets/400by400.png" alt="drawing" width="250"/>
 
