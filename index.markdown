@@ -113,7 +113,7 @@ This is used to check if the current node is terminal or not. Terminal node is r
 
 ```python 
 def rollout(self):
-    current_rollout_state = self.state
+    current_rollout_state = self
     
     while not current_rollout_state.is_game_over():
         
