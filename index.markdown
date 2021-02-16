@@ -113,7 +113,7 @@ This is used to check if the current node is terminal or not. Terminal node is r
 
 ```python 
 def rollout(self):
-    current_rollout_state = self
+    current_rollout_state = self.state
     
     while not current_rollout_state.is_game_over():
         
@@ -161,7 +161,7 @@ Randomly selects a move out of possible moves. This is an example of random play
 ```python
 def _tree_policy(self):
 
-    current_node = self.root
+    current_node = self
     while not current_node.is_terminal_node():
         
         if not current_node.is_fully_expanded():
