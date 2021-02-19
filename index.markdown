@@ -194,7 +194,7 @@ def get_legal_actions(self):
     Modify according to your game or
     needs. Constructs a list of all
     possible states from current state.
-    Returns an array.
+    Returns a list.
     '''
 ```
 
