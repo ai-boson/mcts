@@ -44,7 +44,7 @@ Define MCTS class as shown below.
 
 ```python
 class MonteCarloTreeSearchNode():
-    def __init__(self, state, parent=None, parent_action=None):
+    def __init__(self, state = initial_state, parent=None, parent_action=None):
         self.state = state
         self.parent = parent
         self.parent_action = parent_action
