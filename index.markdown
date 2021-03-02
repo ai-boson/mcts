@@ -237,7 +237,7 @@ def move(self,action):
 
 ```python
 def main():
-    root = MonteCarloTreeSearchNode(state,None,action)
+    root = MonteCarloTreeSearchNode(state = initial_state, parent = None, parent_action = None)
     selected_node = root.best_action()
     return 
 ```
