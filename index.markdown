@@ -34,6 +34,7 @@ Also as you would have seen from playing the game the time it takes for the ai t
 [![homepage](/assets/google-play-badge.png)][2]
 
 MCTS consists of 4 steps:
+Note: You might not understand initially but look at the MCTS code below for proper explanation.
 
 ## SELECTION
 
