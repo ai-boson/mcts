@@ -13,6 +13,8 @@ The code is general and only assumes familarity with basic Python. We have expla
 
 Here is the playstore link to the game: [Sudo Tic Tac Toe][jekyll-talk].
 
+[![homepage](/assets/google-play-badge.png)][2]
+
 Rules for our game(mode 1) are as follows:
 
 1. The game is played on a 9 by 9 grid like Sudoku.
@@ -30,8 +32,6 @@ As you would have seen this game has a very high branching factor. For the first
 For the first 2 moves this results in 81*9 = 729 possible combinations. Thus the number of possible combinations increases as the game progresses, resulting in a high branching factor. For both the modes of our game the branching factor is very high. For games with such high branching factor it's not possible to apply the minimax algorithm. MCTS algorithm works for these kind of games.
 
 Also as you would have seen from playing the game the time it takes for the ai to make a move is just about a second. Thus MCTS runs fast. MCTS has been applied to both the modes of the game.
-
-[![homepage](/assets/google-play-badge.png)][2]
 
 MCTS consists of 4 steps:
 
