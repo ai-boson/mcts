@@ -33,6 +33,32 @@ Also as you would have seen from playing the game the time it takes for the ai t
 
 [![homepage](/assets/google-play-badge.png)][2]
 
+MCTS consists of 4 steps:
+
+## SELECTION
+
+The idea is to keep selecting best child nodes until we reach the leaf node of the tree. A good way to select such a child node is to use UCT (Upper Confidence Bound applied to trees) formula:
+
+		wi/ni + c*sqrt(t)/ni
+  
+
+wi = number of wins after the i-th move  
+ni = number of simulations after the i-th move  
+c = exploration parameter (theoretically equal to √2)  
+t = total number of simulations for the parent node  
+
+## EXPANSION:
+
+When it can no longer apply UCT to find the successor node, it expands the game tree by appending all possible states from the leaf node.
+
+## SIMULATION:
+
+After Expansion, the algorithm picks a child node arbitrarily, and it simulates entire game from selected node until it reaches the resulting state of the game. If nodes are picked randomly during the play out, it is called light play out. You can also opt for heavy play out by writing quality heuristics or evaluation functions.
+
+## BACKPROPAGATION:
+
+Once the algorithm reaches the end of the game, it evaluates the state to figure out which player has won. It traverses upwards to the root and increments visit score for all visited nodes. It also updates win score for each node if the player for that position has won the playout.
+
 Below we demonstrate the MCTS code in Python.
 First we need to import numpy and defaultdict.
 
@@ -103,7 +129,7 @@ def expand(self):
     self.children.append(child_node)
     return child_node 
 ``` 
-From the present state, next state is generated depending on the action which is carried out. In this step all the possible states are appended to the children array and the child_node is returned. The states which are possible from the present state are all appended to the children array and the child_node corresponding to this state is returned.
+From the present state, next state is generated depending on the action which is carried out. In this step all the possible child nodes corresponding to generated states are appended to the children array and the child_node is returned. The states which are possible from the present state are all generated and the child_node corresponding to this generated state is returned.
 
 ```python 
 def is_terminal_node(self):
@@ -242,32 +268,6 @@ def main():
     return 
 ```
 This is the main() function. Initialize the root node and call the best_action function to get the best node. This is not a member function of the class. All the other functions are member function of the class.
-
-MCTS consists of 4 steps:
-
-## SELECTION
-
-The idea is to keep selecting best child nodes until we reach the leaf node of the tree. A good way to select such a child node is to use UCT (Upper Confidence Bound applied to trees) formula:
-
-		wi/ni + c*sqrt(t)/ni
-  
-
-wi = number of wins after the i-th move  
-ni = number of simulations after the i-th move  
-c = exploration parameter (theoretically equal to √2)  
-t = total number of simulations for the parent node  
-
-## EXPANSION:
-
-When it can no longer apply UCT to find the successor node, it expands the game tree by appending all possible states from the leaf node.
-
-## SIMULATION:
-
-After Expansion, the algorithm picks a child node arbitrarily, and it simulates entire game from selected node until it reaches the resulting state of the game. If nodes are picked randomly during the play out, it is called light play out. You can also opt for heavy play out by writing quality heuristics or evaluation functions.
-
-## BACKPROPAGATION:
-
-Once the algorithm reaches the end of the game, it evaluates the state to figure out which player has won. It traverses upwards to the root and increments visit score for all visited nodes. It also updates win score for each node if the player for that position has won the playout.
 
 
 ## DESIGNING YOUR GAME:
