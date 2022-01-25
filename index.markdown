@@ -271,6 +271,7 @@ def main():
 ```
 This is the main() function. Initialize the root node and call the best_action function to get the best node. This is not a member function of the class. All the other functions are member function of the class.
 
+If you like the tutorial please consider checking out game page of my first 3D game [Anti Gravity Race][3]
 
 ## DESIGNING YOUR GAME:
 
@@ -279,12 +280,9 @@ If you plan to make your own game, you will have to think about the following qu
 2. **What will be the end game condition for your game? Compare it with the end game condition of our game.**
 3. **How will you get the legal actions in your game? Try getting the legal actions for the first move of our game.** 
 
-If you like the tutorial please consider checking out game page of my first 3D game [Anti Gravity Race][3]
 
 
-
-
-If you have any questions or suggestions, feel free to contact us at bosonicstudios@gmail.com
+If you have any questions or suggestions, feel free to contact me at bosonicstudios@gmail.com
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
 [2]: https://play.google.com/store/apps/details?id=com.myComp.sudo
