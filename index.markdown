@@ -279,11 +279,13 @@ If you plan to make your own game, you will have to think about the following qu
 2. **What will be the end game condition for your game? Compare it with the end game condition of our game.**
 3. **How will you get the legal actions in your game? Try getting the legal actions for the first move of our game.** 
 
-[Sudo Tic Tac Toe][jekyll-talk]
+If you like the tutorial please consider checking out game page of my first 3D game [Anti Gravity Race][3]
 
-[![homepage](/assets/google-play-badge.png)][2]
+
+
 
 If you have any questions or suggestions, feel free to contact us at bosonicstudios@gmail.com
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
 [2]: https://play.google.com/store/apps/details?id=com.myComp.sudo
+[3]: https://subtree.itch.io/anti-gravity-race
