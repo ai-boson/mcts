@@ -11,7 +11,7 @@ The code is general and only assumes familarity with basic Python. We have expla
 
 <img src="assets/400by400.png" alt="drawing" width="250"/>
 
-Here is the playstore link to the game: [Sudo Tic Tac Toe][jekyll-talk].
+Here is the playstore link to the game: [Fractio][jekyll-talk].
 
 [![homepage](/assets/google-play-badge.png)][2]
 
@@ -280,7 +280,8 @@ If you plan to make your own game, you will have to think about the following qu
 2. **What will be the end game condition for your game? Compare it with the end game condition of our game.**
 3. **How will you get the legal actions in your game? Try getting the legal actions for the first move of our game.** 
 
-
+[Fractio][jekyll-talk]
+[![homepage](/assets/google-play-badge.png)][2]
 
 If you have any questions or suggestions, feel free to contact me at bosonicstudios@gmail.com
 
