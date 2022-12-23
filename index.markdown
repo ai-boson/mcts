@@ -280,6 +280,8 @@ If you plan to make your own game, you will have to think about the following qu
 2. **What will be the end game condition for your game? Compare it with the end game condition of our game.**
 3. **How will you get the legal actions in your game? Try getting the legal actions for the first move of our game.** 
 
+<iframe src="https://store.steampowered.com/widget/2178650/?t=Fastraq%20is%20a%20high%20speed%20anti-gravity%20racing%20game%20in%20which%20you%20drive%20on%20roller%20coaster%20like%20tracks%2C%20overtake%20your%20opponents%20and%20engage%20in%20combat." frameborder="0" width="646" height="190"></iframe>
+
 [Fractio][jekyll-talk]
 [![homepage](/assets/google-play-badge.png)][2]
 
