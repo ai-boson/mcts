@@ -282,9 +282,6 @@ If you plan to make your own game, you will have to think about the following qu
 
 <iframe src="https://store.steampowered.com/widget/2178650/?t=Fastraq%20is%20a%20high%20speed%20anti-gravity%20racing%20game%20in%20which%20you%20drive%20on%20roller%20coaster%20like%20tracks%2C%20overtake%20your%20opponents%20and%20engage%20in%20combat." frameborder="0" width="646" height="190"></iframe>
 
-[Fractio][jekyll-talk]
-[![homepage](/assets/google-play-badge.png)][2]
-
 If you have any questions or suggestions, feel free to contact me at bosonicstudios@gmail.com
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
