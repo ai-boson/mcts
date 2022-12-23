@@ -271,7 +271,7 @@ def main():
 ```
 This is the main() function. Initialize the root node and call the best_action function to get the best node. This is not a member function of the class. All the other functions are member function of the class.
 
-If you like the tutorial please consider checking out game page of my first 3D game [Anti Gravity Race][3]
+If you like the tutorial please consider checking out game page of my first 3D game [Fastraq][3]
 
 ## DESIGNING YOUR GAME:
 
@@ -287,4 +287,4 @@ If you have any questions or suggestions, feel free to contact me at bosonicstud
 
 [jekyll-talk]: https://play.google.com/store/apps/details?id=com.myComp.sudo
 [2]: https://play.google.com/store/apps/details?id=com.myComp.sudo
-[3]: https://subtree.itch.io/anti-gravity-race
+[3]: https://store.steampowered.com/app/2178650/Fastraq/
